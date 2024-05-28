@@ -1,6 +1,6 @@
 # Simple finance analyzer
 
-This app was build in educational purpoces using [Slint](https://slint.rs) for the user interface and Rust backend
+This app was build in educational purpoces using [Slint](https://slint.rs) for the user interface and Rust for backend
 
 ## Usage
 
