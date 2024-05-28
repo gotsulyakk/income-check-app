@@ -1,0 +1,19 @@
+[package]
+name = "incomapp"
+version = "0.1.0"
+authors = ["gotsulyakk <igorgotsu@gmail.com>"]
+edition = "2021"
+build = "build.rs"
+description = "A simple desktop application for managing personal finances."
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+slint = "1.6"
+
+[build-dependencies]
+slint-build = "1.6"
+
+[package.metadata.bundle]
+name = "IncomeApp"
+identifier = "com.github.gotsulyakk.incomer"

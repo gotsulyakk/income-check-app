@@ -1,0 +1,73 @@
+import { Button, VerticalBox , LineEdit, StandardListView, GroupBox} from "std-widgets.slint";
+
+export component AppWindow inherits Window {
+
+    in property <string> results: "";
+    callback divide-income(string, string);
+    in-out property <bool> open_curtain;
+    animate background { duration: 800ms; }
+
+    background: #313e50;
+
+    GridLayout {
+        padding: 50px;
+        spacing: 25px;
+        Row {
+            income_text := Text {
+                text: "Дохід у місяць";
+                horizontal-alignment: center;
+                font-size: 24px;
+                font-weight: 900;
+            }
+        }
+        Row {
+            income_input := LineEdit {
+                placeholder-text: "Дохід в гривнях";
+                font-size: 16px;
+                height: 35px;
+                horizontal-alignment: center;
+            }
+        }
+        Row {
+            usd_text := Text {
+                text: "Поточний курс долара";
+                horizontal-alignment: center;
+                font-size: 24px;
+                font-weight: 900;
+            }
+        }
+        Row {
+            usd_input := LineEdit {
+                placeholder-text: "Курс долара";
+                font-size: 16px;
+                height: 35px;
+                horizontal-alignment: center;
+            }
+        }
+        Row {
+            button := Button {
+                text: "Розрахувати";
+                padding-top: 30px;
+                height: 35px;
+                primary: true;
+                clicked => {
+                    root.divide-income(income_input.text, usd_input.text);
+                }
+            }
+        }
+        Row {
+            VerticalBox {
+                Rectangle {
+                    height: 150px;
+                    background: #f2f2f2;
+                    Text {
+                        text: root.results;
+                        font-size: 16px;
+                        color: #000000;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+    }
+}
